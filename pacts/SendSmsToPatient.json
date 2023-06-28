@@ -1,0 +1,86 @@
+{
+    "interactions": [
+        {
+            "providerState": {
+                "name": "success"
+            },
+            "description": "Simulates a request to send a SMS to a patient.",
+            "request": {
+                "method": "post",
+                "path": "/patient/sms",
+                "headers": {
+                    "X-Api-Key": "blablabla",
+                    "Content-Type": "application/json"
+                },
+                "body": {
+                    "message": "Your appointment is confirmed to 2023-10-01 at 10:00 with the doctor: Dr. House",
+                    "phone": "1234567890",
+                    "patientId": "11"
+                },
+                "matchingRules": {
+                    "body": {
+                        "$.patientId": {
+                            "matchers": [
+                                {
+                                    "match": "type"
+                                }
+                            ]
+                        },
+                        "$.message": {
+                            "matchers": [
+                                {
+                                    "match": "type"
+                                }
+                            ]
+                        },
+                        "$.phone": {
+                            "matchers": [
+                                {
+                                    "match": "type"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "response": {
+                "status": 200,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": {
+                    "message": "SMS sent successfully"
+                }
+            }
+        },
+        {
+            "providerState": {
+                "name": "failure"
+            },
+            "description": "Requests with an unknown error.",
+            "request": {
+                "method": "post",
+                "path": "/patient/sms",
+                "headers": {
+                    "Accept": "application/json",
+                    "X-Api-Key": "this-key-does-not-exist"
+                }
+            },
+            "response": {
+                "status": 422,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": {
+                    "status": "error",
+                    "message": "Failed to send SMS to patient."
+                }
+            }
+        }
+    ],
+    "metadata": {
+        "pactSpecification": {
+            "version": "3.0.0"
+        }
+    }
+}
