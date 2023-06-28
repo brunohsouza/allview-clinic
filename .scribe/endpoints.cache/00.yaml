@@ -5,45 +5,6 @@ description: ''
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: api/user
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
       - POST
     uri: 'api/patient/{id}/sms'
     metadata:
@@ -151,6 +112,697 @@ endpoints:
           x-ratelimit-limit: '60'
           x-ratelimit-remaining: '59'
           access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/doc
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |
+          <!doctype html>
+          <html lang="en">
+          <head>
+              <meta charset="utf-8">
+              <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+              <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+              <title>AllView Clinic</title>
+
+              <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
+              <link rel="stylesheet" href="http://localhost/api/vendor/scribe/css/theme-default.style.css" media="screen">
+              <link rel="stylesheet" href="http://localhost/api/vendor/scribe/css/theme-default.print.css" media="print">
+
+              <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+              <link rel="stylesheet"
+                    href="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/obsidian.min.css">
+              <script src="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
+
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+              <style id="language-style">
+                  /* starts out as display none and is replaced with js later  */
+                              body .content .bash-example code { display: none; }
+                              body .content .javascript-example code { display: none; }
+                      </style>
+
+              <script>
+                  var tryItOutBaseUrl = "http://localhost";
+                  var useCsrf = Boolean();
+                  var csrfUrl = "/sanctum/csrf-cookie";
+              </script>
+              <script src="http://localhost/api/vendor/scribe/js/tryitout-4.21.2.js"></script>
+
+              <script src="http://localhost/api/vendor/scribe/js/theme-default-4.21.2.js"></script>
+
+          </head>
+
+          <body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+
+          <a href="#" id="nav-button">
+              <span>
+                  MENU
+                  <img src="http://localhost/api/vendor/scribe/images/navbar.png" alt="navbar-image"/>
+              </span>
+          </a>
+          <div class="tocify-wrapper">
+              
+                      <div class="lang-selector">
+                                                      <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                      <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                              </div>
+              
+              <div class="search">
+                  <input type="text" class="search" id="input-search" placeholder="Search">
+              </div>
+
+              <div id="toc">
+                              <ul id="tocify-header-introduction" class="tocify-header">
+                          <li class="tocify-item level-1" data-unique="introduction">
+                              <a href="#introduction">Introduction</a>
+                          </li>
+                                      </ul>
+                              <ul id="tocify-header-authenticating-requests" class="tocify-header">
+                          <li class="tocify-item level-1" data-unique="authenticating-requests">
+                              <a href="#authenticating-requests">Authenticating requests</a>
+                          </li>
+                                      </ul>
+                              <ul id="tocify-header-endpoints" class="tocify-header">
+                          <li class="tocify-item level-1" data-unique="endpoints">
+                              <a href="#endpoints">Endpoints</a>
+                          </li>
+                                              <ul id="tocify-subheader-endpoints" class="tocify-subheader">
+                                                              <li class="tocify-item level-2" data-unique="endpoints-GETapi-user">
+                                          <a href="#endpoints-GETapi-user">GET api/user</a>
+                                      </li>
+                                                                                          <li class="tocify-item level-2" data-unique="endpoints-POSTapi-patient--id--sms">
+                                          <a href="#endpoints-POSTapi-patient--id--sms">POST api/patient/{id}/sms</a>
+                                      </li>
+                                                                                          <li class="tocify-item level-2" data-unique="endpoints-POSTapi-patient">
+                                          <a href="#endpoints-POSTapi-patient">POST api/patient</a>
+                                      </li>
+                                                                                          <li class="tocify-item level-2" data-unique="endpoints-GETapi-patient--id-">
+                                          <a href="#endpoints-GETapi-patient--id-">GET api/patient/{id}</a>
+                                      </li>
+                                                                                  </ul>
+                                      </ul>
+                      </div>
+
+              <ul class="toc-footer" id="toc-footer">
+                              <li style="padding-bottom: 5px;"><a href="http://localhost/api/doc.postman">View Postman collection</a></li>
+                                      <li style="padding-bottom: 5px;"><a href="http://localhost/api/doc.openapi">View OpenAPI spec</a></li>
+                          <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+              </ul>
+
+              <ul class="toc-footer" id="last-updated">
+                  <li>Last updated: June 28, 2023</li>
+              </ul>
+          </div>
+
+          <div class="page-wrapper">
+              <div class="dark-box"></div>
+              <div class="content">
+                  <h1 id="introduction">Introduction</h1>
+          <p>API to manage patients and their records for AllView Clinic.</p>
+          <aside>
+              <strong>Base URL</strong>: <code>http://localhost/api</code>
+          </aside>
+          <p>This documentation aims to provide all the information you need to work with our API.</p>
+          <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+          You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+
+                  <h1 id="authenticating-requests">Authenticating requests</h1>
+          <p>This API is not authenticated.</p>
+
+                  <h1 id="endpoints">Endpoints</h1>
+
+              
+
+                                          <h2 id="endpoints-GETapi-user">GET api/user</h2>
+
+          <p>
+          </p>
+
+
+
+          <span id="example-requests-GETapi-user">
+          <blockquote>Example request:</blockquote>
+
+
+          <div class="bash-example">
+              <pre><code class="language-bash">curl --request GET \
+              --get "http://localhost/api/api/user" \
+              --header "Content-Type: application/json" \
+              --header "Accept: application/json"</code></pre></div>
+
+
+          <div class="javascript-example">
+              <pre><code class="language-javascript">const url = new URL(
+              "http://localhost/api/api/user"
+          );
+
+          const headers = {
+              "Content-Type": "application/json",
+              "Accept": "application/json",
+          };
+
+          fetch(url, {
+              method: "GET",
+              headers,
+          }).then(response =&gt; response.json());</code></pre></div>
+
+          </span>
+
+          <span id="example-responses-GETapi-user">
+                      <blockquote>
+                      <p>Example response (401):</p>
+                  </blockquote>
+                          <details class="annotation">
+                      <summary style="cursor: pointer;">
+                          <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+                      </summary>
+                      <pre><code class="language-http">cache-control: no-cache, private
+          content-type: application/json
+          access-control-allow-origin: *
+           </code></pre></details>         <pre>
+
+          <code class="language-json" style="max-height: 300px;">{
+              &quot;message&quot;: &quot;Unauthenticated.&quot;
+          }</code>
+           </pre>
+              </span>
+          <span id="execution-results-GETapi-user" hidden>
+              <blockquote>Received response<span
+                          id="execution-response-status-GETapi-user"></span>:
+              </blockquote>
+              <pre class="json"><code id="execution-response-content-GETapi-user"
+                data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+          </span>
+          <span id="execution-error-GETapi-user" hidden>
+              <blockquote>Request failed with error:</blockquote>
+              <pre><code id="execution-error-message-GETapi-user">
+
+          Tip: Check that you&#039;re properly connected to the network.
+          If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+          You can check the Dev Tools console for debugging information.</code></pre>
+          </span>
+          <form id="form-GETapi-user" data-method="GET"
+                data-path="api/user"
+                data-authed="0"
+                data-hasfiles="0"
+                data-isarraybody="0"
+                autocomplete="off"
+                onsubmit="event.preventDefault(); executeTryOut('GETapi-user', this);">
+              <h3>
+                  Request&nbsp;&nbsp;&nbsp;
+                              <button type="button"
+                              style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                              id="btn-tryout-GETapi-user"
+                              onclick="tryItOut('GETapi-user');">Try it out ⚡
+                      </button>
+                      <button type="button"
+                              style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                              id="btn-canceltryout-GETapi-user"
+                              onclick="cancelTryOut('GETapi-user');" hidden>Cancel 🛑
+                      </button>&nbsp;&nbsp;
+                      <button type="submit"
+                              style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                              id="btn-executetryout-GETapi-user"
+                              data-initial-text="Send Request 💥"
+                              data-loading-text="⏱ Sending..."
+                              hidden>Send Request 💥
+                      </button>
+                      </h3>
+                      <p>
+                      <small class="badge badge-green">GET</small>
+                      <b><code>api/user</code></b>
+                  </p>
+                          <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                          <div style="padding-left: 28px; clear: unset;">
+                          <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+          &nbsp;
+           &nbsp;
+                          <input type="text" style="display: none"
+                         name="Content-Type"                data-endpoint="GETapi-user"
+                         value="application/json"
+                         data-component="header">
+              <br>
+          <p>Example: <code>application/json</code></p>
+                      </div>
+                                          <div style="padding-left: 28px; clear: unset;">
+                          <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+          &nbsp;
+           &nbsp;
+                          <input type="text" style="display: none"
+                         name="Accept"                data-endpoint="GETapi-user"
+                         value="application/json"
+                         data-component="header">
+              <br>
+          <p>Example: <code>application/json</code></p>
+                      </div>
+                                  </form>
+
+                              <h2 id="endpoints-POSTapi-patient--id--sms">POST api/patient/{id}/sms</h2>
+
+          <p>
+          </p>
+
+
+
+          <span id="example-requests-POSTapi-patient--id--sms">
+          <blockquote>Example request:</blockquote>
+
+
+          <div class="bash-example">
+              <pre><code class="language-bash">curl --request POST \
+              "http://localhost/api/api/patient/1/sms" \
+              --header "Content-Type: application/json" \
+              --header "Accept: application/json"</code></pre></div>
+
+
+          <div class="javascript-example">
+              <pre><code class="language-javascript">const url = new URL(
+              "http://localhost/api/api/patient/1/sms"
+          );
+
+          const headers = {
+              "Content-Type": "application/json",
+              "Accept": "application/json",
+          };
+
+          fetch(url, {
+              method: "POST",
+              headers,
+          }).then(response =&gt; response.json());</code></pre></div>
+
+          </span>
+
+          <span id="example-responses-POSTapi-patient--id--sms">
+          </span>
+          <span id="execution-results-POSTapi-patient--id--sms" hidden>
+              <blockquote>Received response<span
+                          id="execution-response-status-POSTapi-patient--id--sms"></span>:
+              </blockquote>
+              <pre class="json"><code id="execution-response-content-POSTapi-patient--id--sms"
+                data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+          </span>
+          <span id="execution-error-POSTapi-patient--id--sms" hidden>
+              <blockquote>Request failed with error:</blockquote>
+              <pre><code id="execution-error-message-POSTapi-patient--id--sms">
+
+          Tip: Check that you&#039;re properly connected to the network.
+          If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+          You can check the Dev Tools console for debugging information.</code></pre>
+          </span>
+          <form id="form-POSTapi-patient--id--sms" data-method="POST"
+                data-path="api/patient/{id}/sms"
+                data-authed="0"
+                data-hasfiles="0"
+                data-isarraybody="0"
+                autocomplete="off"
+                onsubmit="event.preventDefault(); executeTryOut('POSTapi-patient--id--sms', this);">
+              <h3>
+                  Request&nbsp;&nbsp;&nbsp;
+                              <button type="button"
+                              style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                              id="btn-tryout-POSTapi-patient--id--sms"
+                              onclick="tryItOut('POSTapi-patient--id--sms');">Try it out ⚡
+                      </button>
+                      <button type="button"
+                              style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                              id="btn-canceltryout-POSTapi-patient--id--sms"
+                              onclick="cancelTryOut('POSTapi-patient--id--sms');" hidden>Cancel 🛑
+                      </button>&nbsp;&nbsp;
+                      <button type="submit"
+                              style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                              id="btn-executetryout-POSTapi-patient--id--sms"
+                              data-initial-text="Send Request 💥"
+                              data-loading-text="⏱ Sending..."
+                              hidden>Send Request 💥
+                      </button>
+                      </h3>
+                      <p>
+                      <small class="badge badge-black">POST</small>
+                      <b><code>api/patient/{id}/sms</code></b>
+                  </p>
+                          <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                          <div style="padding-left: 28px; clear: unset;">
+                          <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+          &nbsp;
+           &nbsp;
+                          <input type="text" style="display: none"
+                         name="Content-Type"                data-endpoint="POSTapi-patient--id--sms"
+                         value="application/json"
+                         data-component="header">
+              <br>
+          <p>Example: <code>application/json</code></p>
+                      </div>
+                                          <div style="padding-left: 28px; clear: unset;">
+                          <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+          &nbsp;
+           &nbsp;
+                          <input type="text" style="display: none"
+                         name="Accept"                data-endpoint="POSTapi-patient--id--sms"
+                         value="application/json"
+                         data-component="header">
+              <br>
+          <p>Example: <code>application/json</code></p>
+                      </div>
+                                  <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                              <div style="padding-left: 28px; clear: unset;">
+                          <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+          <small>integer</small>&nbsp;
+           &nbsp;
+                          <input type="number" style="display: none"
+                         name="id"                data-endpoint="POSTapi-patient--id--sms"
+                         value="1"
+                         data-component="url">
+              <br>
+          <p>The ID of the patient. Example: <code>1</code></p>
+                      </div>
+                              </form>
+
+                              <h2 id="endpoints-POSTapi-patient">POST api/patient</h2>
+
+          <p>
+          </p>
+
+
+
+          <span id="example-requests-POSTapi-patient">
+          <blockquote>Example request:</blockquote>
+
+
+          <div class="bash-example">
+              <pre><code class="language-bash">curl --request POST \
+              "http://localhost/api/api/patient" \
+              --header "Content-Type: application/json" \
+              --header "Accept: application/json"</code></pre></div>
+
+
+          <div class="javascript-example">
+              <pre><code class="language-javascript">const url = new URL(
+              "http://localhost/api/api/patient"
+          );
+
+          const headers = {
+              "Content-Type": "application/json",
+              "Accept": "application/json",
+          };
+
+          fetch(url, {
+              method: "POST",
+              headers,
+          }).then(response =&gt; response.json());</code></pre></div>
+
+          </span>
+
+          <span id="example-responses-POSTapi-patient">
+          </span>
+          <span id="execution-results-POSTapi-patient" hidden>
+              <blockquote>Received response<span
+                          id="execution-response-status-POSTapi-patient"></span>:
+              </blockquote>
+              <pre class="json"><code id="execution-response-content-POSTapi-patient"
+                data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+          </span>
+          <span id="execution-error-POSTapi-patient" hidden>
+              <blockquote>Request failed with error:</blockquote>
+              <pre><code id="execution-error-message-POSTapi-patient">
+
+          Tip: Check that you&#039;re properly connected to the network.
+          If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+          You can check the Dev Tools console for debugging information.</code></pre>
+          </span>
+          <form id="form-POSTapi-patient" data-method="POST"
+                data-path="api/patient"
+                data-authed="0"
+                data-hasfiles="0"
+                data-isarraybody="0"
+                autocomplete="off"
+                onsubmit="event.preventDefault(); executeTryOut('POSTapi-patient', this);">
+              <h3>
+                  Request&nbsp;&nbsp;&nbsp;
+                              <button type="button"
+                              style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                              id="btn-tryout-POSTapi-patient"
+                              onclick="tryItOut('POSTapi-patient');">Try it out ⚡
+                      </button>
+                      <button type="button"
+                              style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                              id="btn-canceltryout-POSTapi-patient"
+                              onclick="cancelTryOut('POSTapi-patient');" hidden>Cancel 🛑
+                      </button>&nbsp;&nbsp;
+                      <button type="submit"
+                              style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                              id="btn-executetryout-POSTapi-patient"
+                              data-initial-text="Send Request 💥"
+                              data-loading-text="⏱ Sending..."
+                              hidden>Send Request 💥
+                      </button>
+                      </h3>
+                      <p>
+                      <small class="badge badge-black">POST</small>
+                      <b><code>api/patient</code></b>
+                  </p>
+                          <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                          <div style="padding-left: 28px; clear: unset;">
+                          <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+          &nbsp;
+           &nbsp;
+                          <input type="text" style="display: none"
+                         name="Content-Type"                data-endpoint="POSTapi-patient"
+                         value="application/json"
+                         data-component="header">
+              <br>
+          <p>Example: <code>application/json</code></p>
+                      </div>
+                                          <div style="padding-left: 28px; clear: unset;">
+                          <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+          &nbsp;
+           &nbsp;
+                          <input type="text" style="display: none"
+                         name="Accept"                data-endpoint="POSTapi-patient"
+                         value="application/json"
+                         data-component="header">
+              <br>
+          <p>Example: <code>application/json</code></p>
+                      </div>
+                                  </form>
+
+                              <h2 id="endpoints-GETapi-patient--id-">GET api/patient/{id}</h2>
+
+          <p>
+          </p>
+
+
+
+          <span id="example-requests-GETapi-patient--id-">
+          <blockquote>Example request:</blockquote>
+
+
+          <div class="bash-example">
+              <pre><code class="language-bash">curl --request GET \
+              --get "http://localhost/api/api/patient/1" \
+              --header "Content-Type: application/json" \
+              --header "Accept: application/json"</code></pre></div>
+
+
+          <div class="javascript-example">
+              <pre><code class="language-javascript">const url = new URL(
+              "http://localhost/api/api/patient/1"
+          );
+
+          const headers = {
+              "Content-Type": "application/json",
+              "Accept": "application/json",
+          };
+
+          fetch(url, {
+              method: "GET",
+              headers,
+          }).then(response =&gt; response.json());</code></pre></div>
+
+          </span>
+
+          <span id="example-responses-GETapi-patient--id-">
+                      <blockquote>
+                      <p>Example response (200):</p>
+                  </blockquote>
+                          <details class="annotation">
+                      <summary style="cursor: pointer;">
+                          <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+                      </summary>
+                      <pre><code class="language-http">cache-control: no-cache, private
+          content-type: application/json
+          x-ratelimit-limit: 60
+          x-ratelimit-remaining: 59
+          access-control-allow-origin: *
+           </code></pre></details>         <pre>
+
+          <code class="language-json" style="max-height: 300px;">{
+              &quot;id&quot;: 1,
+              &quot;name&quot;: &quot;Ms. Emelia Crooks V&quot;,
+              &quot;phone&quot;: &quot;+1 (716) 238-9312&quot;,
+              &quot;email&quot;: &quot;isom20@example.org&quot;,
+              &quot;created_at&quot;: &quot;2023-06-26T23:21:33.000000Z&quot;,
+              &quot;updated_at&quot;: &quot;2023-06-26T23:21:33.000000Z&quot;,
+              &quot;deleted_at&quot;: null,
+              &quot;records&quot;: [
+                  {
+                      &quot;id&quot;: 1,
+                      &quot;patient_id&quot;: 1,
+                      &quot;description&quot;: &quot;Quisquam officiis odio possimus a et omnis pariatur.&quot;,
+                      &quot;created_at&quot;: &quot;2023-06-26T23:21:33.000000Z&quot;,
+                      &quot;updated_at&quot;: &quot;2023-06-26T23:21:33.000000Z&quot;
+                  },
+                  {
+                      &quot;id&quot;: 2,
+                      &quot;patient_id&quot;: 1,
+                      &quot;description&quot;: &quot;Error iure facere cumque quam minima.&quot;,
+                      &quot;created_at&quot;: &quot;2023-06-26T23:21:33.000000Z&quot;,
+                      &quot;updated_at&quot;: &quot;2023-06-26T23:21:33.000000Z&quot;
+                  },
+                  {
+                      &quot;id&quot;: 3,
+                      &quot;patient_id&quot;: 1,
+                      &quot;description&quot;: &quot;Aut eos est eius rem.&quot;,
+                      &quot;created_at&quot;: &quot;2023-06-26T23:21:33.000000Z&quot;,
+                      &quot;updated_at&quot;: &quot;2023-06-26T23:21:33.000000Z&quot;
+                  }
+              ]
+          }</code>
+           </pre>
+              </span>
+          <span id="execution-results-GETapi-patient--id-" hidden>
+              <blockquote>Received response<span
+                          id="execution-response-status-GETapi-patient--id-"></span>:
+              </blockquote>
+              <pre class="json"><code id="execution-response-content-GETapi-patient--id-"
+                data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+          </span>
+          <span id="execution-error-GETapi-patient--id-" hidden>
+              <blockquote>Request failed with error:</blockquote>
+              <pre><code id="execution-error-message-GETapi-patient--id-">
+
+          Tip: Check that you&#039;re properly connected to the network.
+          If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+          You can check the Dev Tools console for debugging information.</code></pre>
+          </span>
+          <form id="form-GETapi-patient--id-" data-method="GET"
+                data-path="api/patient/{id}"
+                data-authed="0"
+                data-hasfiles="0"
+                data-isarraybody="0"
+                autocomplete="off"
+                onsubmit="event.preventDefault(); executeTryOut('GETapi-patient--id-', this);">
+              <h3>
+                  Request&nbsp;&nbsp;&nbsp;
+                              <button type="button"
+                              style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                              id="btn-tryout-GETapi-patient--id-"
+                              onclick="tryItOut('GETapi-patient--id-');">Try it out ⚡
+                      </button>
+                      <button type="button"
+                              style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                              id="btn-canceltryout-GETapi-patient--id-"
+                              onclick="cancelTryOut('GETapi-patient--id-');" hidden>Cancel 🛑
+                      </button>&nbsp;&nbsp;
+                      <button type="submit"
+                              style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                              id="btn-executetryout-GETapi-patient--id-"
+                              data-initial-text="Send Request 💥"
+                              data-loading-text="⏱ Sending..."
+                              hidden>Send Request 💥
+                      </button>
+                      </h3>
+                      <p>
+                      <small class="badge badge-green">GET</small>
+                      <b><code>api/patient/{id}</code></b>
+                  </p>
+                          <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                          <div style="padding-left: 28px; clear: unset;">
+                          <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+          &nbsp;
+           &nbsp;
+                          <input type="text" style="display: none"
+                         name="Content-Type"                data-endpoint="GETapi-patient--id-"
+                         value="application/json"
+                         data-component="header">
+              <br>
+          <p>Example: <code>application/json</code></p>
+                      </div>
+                                          <div style="padding-left: 28px; clear: unset;">
+                          <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+          &nbsp;
+           &nbsp;
+                          <input type="text" style="display: none"
+                         name="Accept"                data-endpoint="GETapi-patient--id-"
+                         value="application/json"
+                         data-component="header">
+              <br>
+          <p>Example: <code>application/json</code></p>
+                      </div>
+                                  <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                              <div style="padding-left: 28px; clear: unset;">
+                          <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+          <small>integer</small>&nbsp;
+           &nbsp;
+                          <input type="number" style="display: none"
+                         name="id"                data-endpoint="GETapi-patient--id-"
+                         value="1"
+                         data-component="url">
+              <br>
+          <p>The ID of the patient. Example: <code>1</code></p>
+                      </div>
+                              </form>
+
+                      
+
+                  
+              </div>
+              <div class="dark-box">
+                              <div class="lang-selector">
+                                                                  <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                                  <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                                      </div>
+                      </div>
+          </div>
+          </body>
+          </html>
+        headers:
+          content-type: 'text/html; charset=UTF-8'
+          cache-control: 'no-cache, private'
+          access-control-allow-origin: '*'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6ImNnc0s2UGVqWnlreFpyTDNhajFWWVE9PSIsInZhbHVlIjoickl6OElYVWRCcHYvK2NWdTNtd2Erbkppd0EwamxvUXlyMW5uN1dTSE5ZRHpsZGhUUFJjVkRCMytJM3Z3Y241R0lFZk1JY00rMWJXWllHWm12MDl6REk4ZUVYTHRVK25ZRDF5aEp2aTZFTU9JZkovTWhNOHQ2ZlRFS3hUQWZrMVgiLCJtYWMiOiJlODI0Y2M5MmRmMDczYTRiMWJjODFkMzMwYmEwZWQ2OTE4ZDU2YzExODEwMDYzODZjM2RkMGI4NjliYTlhMzIxIiwidGFnIjoiIn0%3D; expires=Wed, 28 Jun 2023 14:17:59 GMT; Max-Age=7200; path=/; samesite=lax; laravel_session=eyJpdiI6IkVlTjcrOXEwV2F1NSt1NnkxWVFwUHc9PSIsInZhbHVlIjoiRUFmdXZTQ2JNd3pYWXNzYnd0TWFTclFxaS9PR2RrbXd0MlFjSnBQRWRNQktNRDdHTk1acDRvUXJXNmF3VklCeHdNalo0UW9qSTZoWXZYMGhKMXExMjZmU0lScTFiOVFsMThyZy9rTFIwbHkwTk5OQVc3alp1aWpSdVVYa1RPQVIiLCJtYWMiOiI5OWI2YjY5NDdiMWJmZDM2NjlmMzU3ZGM0MzJhZGM3NjE0NTEyODY3YTg0ODQ1NjY4NDBjZmM0YmUwOTI0ZjI1IiwidGFnIjoiIn0%3D; expires=Wed, 28 Jun 2023 14:17:59 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
         custom: []
     responseFields: []
